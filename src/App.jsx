@@ -1,16 +1,20 @@
+import { Suspense } from 'react'
 import './App.css'
 import Countries from './component/countries/Countries'
 
+// all countries data loader
+const countriesPromies = fetch("https://openapi.programming-hero.com/api/all")
+.then(res => res.json()) 
+
 function App() {
  
-
   return (
     <>
-      <h1>React world no go...</h1>
-      <Countries></Countries>
-      
+      <Suspense fallback={<p>Data comming sooon...</p>}>
+        <Countries countriesPromies={countriesPromies}></Countries>
+      </Suspense>
     </>
-  )
+  );
 }
 
 export default App
