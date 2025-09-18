@@ -4,14 +4,16 @@ import Country from "../Country/Country";
 const Countries = ({ countriesPromies }) => {
   const countriesData = use(countriesPromies);
   const countries = countriesData.countries;
-  console.log(countries);
+//   console.log(countries);
 
   return (
     <div>
       <h1>React on the goooo: {countries.length} </h1>
-      {
-        countries.map(country => <Country country={country}></Country>)
-      }
+      {countries.map((country) => (
+        <Country 
+        key={country.cca3.cca3}        
+        country={country}></Country>
+      ))}
     </div>
   );
 };
